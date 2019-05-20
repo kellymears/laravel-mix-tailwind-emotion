@@ -1,0 +1,17 @@
+{
+  "name": "laravel-mix-tweemotional",
+  "version": "0.1.0",
+  "description": "Laravel mix extension that combines the best of Emotion and Tailwind.",
+  "main": "index.js",
+  "keywords": [
+    "laravel",
+    "laravel mix",
+    "mix",
+    "emotion",
+    "babel",
+    "tailwindcss"
+  ],
+  "author": "Kelly Mears",
+  "license": "MIT",
+  "homepage": "https://github.com/kellymears/tweemotional"
+}
