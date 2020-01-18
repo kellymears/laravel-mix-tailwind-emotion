@@ -6,9 +6,7 @@ class TailwindEmotion {
   }
 
   dependencies() {
-    this.requiresReload = `
-      Dependencies have been installed. Please run again.
-    `
+    this.requiresReload = `👩🏼‍🎤 Dependencies have been installed.`
 
     return [
       'emotion',
@@ -17,29 +15,26 @@ class TailwindEmotion {
       '@emotion/babel-preset-css-prop',
       'babel-plugin-emotion',
       'babel-plugin-macros',
-      'tailwind.macro',
+      'tailwind.macro@next',
       'tailwindcss',
     ]
   }
 
-  register(options) {
+  register({ tailwindConfig, emotionFormat }) {
     this.config = {
-      tailwind: options && options.tailwindConfig ?
-                options.tailwindConfig :
-                'tailwind.config.js',
-
-      emotionFormat: options && options.emotionFormat ?
-                     options.emotionFormat
-                     : '[local]',
+      tailwind:      tailwindConfig ? tailwindConfig : 'tailwind.config.js',
+      emotionFormat: emotionFormat  ? emotionFormat  : '[local]'
     }
   }
 
   babelConfig() {
     return {
-      presets: [['@emotion/babel-preset-css-prop', {
-        autoLabel: true,
-        labelFormat: this.config.emotionFormat,
-      }]],
+      presets: [
+        ['@emotion/babel-preset-css-prop', {
+          autoLabel: true,
+          labelFormat: this.config.emotionFormat,
+        }]
+      ],
       plugins: [
         ['macros', {
           config: this.config.tailwind,
